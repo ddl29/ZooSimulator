@@ -249,7 +249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   indice: 0
   cupo: 30
-  duracion: 5
+  duracion: 2
   aforo: {fileID: 614731387}
   filaTexto: {fileID: 582536168}
 --- !u!50 &5189752
@@ -1591,7 +1591,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   indice: 4
   cupo: 80
-  duracion: 5
+  duracion: 2
   aforo: {fileID: 694835271}
   filaTexto: {fileID: 1262250}
 --- !u!50 &738705607
@@ -2116,7 +2116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   indice: 1
   cupo: 4
-  duracion: 5
+  duracion: 2
   aforo: {fileID: 1708742418}
   filaTexto: {fileID: 704817711}
 --- !u!50 &975364843
@@ -2213,7 +2213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   indice: 2
   cupo: 15
-  duracion: 5
+  duracion: 2
   aforo: {fileID: 1589402476}
   filaTexto: {fileID: 2025377019}
 --- !u!50 &1052108151
@@ -2373,7 +2373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   indice: 3
   cupo: 280
-  duracion: 5
+  duracion: 2
   aforo: {fileID: 1495450852}
   filaTexto: {fileID: 1963155905}
 --- !u!50 &1125469123
@@ -3505,7 +3505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   persona: {fileID: 2645376998589183335, guid: bcfebc04fcea2af45bdc39a41b31b31f, type: 3}
-  tasaPorMinuto: 3
+  tasaPorMinuto: 5
   entrada: {fileID: 1719928490}
   horasLlegada: 1
   minutos: {fileID: 221316098}
@@ -4357,7 +4357,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   indice: 5
   cupo: 100
-  duracion: 5
+  duracion: 2
   aforo: {fileID: 1315725284}
   filaTexto: {fileID: 1694815303}
 --- !u!50 &2138895424

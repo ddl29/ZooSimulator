@@ -7,7 +7,7 @@ public class Persona : MonoBehaviour
 {
     private Transform[] lugares = new Transform[6];
     private Transform entrada;
-    private float speed = 3.0f;
+    private float speed = 5.0f;
     private Transform meta;
     private System.Random rand = new System.Random();
     private bool[] visitados = new bool[6];
@@ -53,6 +53,7 @@ public class Persona : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, meta.position, step);
         if (visitadosInt == 6)
         {
+            print("Ya terminé");
             if (transform.position == entrada.position)
             {
                 Destroy(gameObject);
@@ -67,6 +68,7 @@ public class Persona : MonoBehaviour
             Lugar llegue = (Lugar)c.GetComponent(typeof(Lugar));
             actual = llegue.getIndice();
             visitados[actual] = true;
+            visitadosInt++;
             float duracion = (float)llegue.getDuracion();
             rutinaWait = wait(duracion);
             //meta = lugares[matriz.getNextPlace(actual, visitados)];
@@ -85,7 +87,6 @@ public class Persona : MonoBehaviour
     IEnumerator wait(float wait)
     {
         yield return new WaitForSeconds(wait);
-        visitadosInt++;
         if (visitadosInt < 6)
         {
             meta = lugares[matriz.getNextPlace(actual, visitados)];
@@ -95,7 +96,6 @@ public class Persona : MonoBehaviour
         {
             meta = entrada;
         }
-
     }
 
     public void setTurno(bool check)
