@@ -51,14 +51,14 @@ public class Persona : MonoBehaviour
     {
         float step = speed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, meta.position, step);
-        if (visitadosInt == 6)
+        /*if (visitadosInt == 6)
         {
             print("Ya terminé");
             if (transform.position == entrada.position)
             {
                 Destroy(gameObject);
             }
-        }
+        }*/
     }
 
     void OnTriggerEnter2D(Collider2D c)
@@ -72,6 +72,12 @@ public class Persona : MonoBehaviour
             float duracion = (float)llegue.getDuracion();
             rutinaWait = wait(duracion);
             //meta = lugares[matriz.getNextPlace(actual, visitados)];
+        }
+        if (visitadosInt == 6 && c.tag == "Entrada")
+        {
+            SpawnPeople exit = (SpawnPeople)c.GetComponent(typeof(SpawnPeople));
+            exit.decrementaAforGlobal();
+            Destroy(gameObject);
         }
     }
 
@@ -101,5 +107,10 @@ public class Persona : MonoBehaviour
     public void setTurno(bool check)
     {
         this.turno = check;
+    }
+
+    public int getVisitadosInt()
+    {
+        return this.visitadosInt;
     }
 }

@@ -14,18 +14,15 @@ public class Lugar : MonoBehaviour
     private Queue<Persona> fila;
     private int contFila = 0;
     IEnumerator checarCupo;
+    SpawnPeople entrada;
+    private bool vacio = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        entrada = (SpawnPeople)GameObject.Find("Entrada").GetComponent(typeof(SpawnPeople));
         fila = new Queue<Persona>();
         aforo.text = "" + cont;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     void OnTriggerEnter2D(Collider2D c)
@@ -38,6 +35,11 @@ public class Lugar : MonoBehaviour
                 tmp.setTurno(true);
                 this.cont++;
                 aforo.text = "" + cont;
+                //Checar si la persona llego al lugar cuando el zoo ya estaba cerrado.
+                if (!entrada.isAbierto())
+                {
+                    vacio = false;
+                }
             }
             else
             {
@@ -62,6 +64,11 @@ public class Lugar : MonoBehaviour
                 filaTexto.text = "" + contFila;
                 cont++;
                 aforo.text = "" + cont;
+                //Checar si la persona llego al lugar cuando el zoo ya estaba cerrado.
+                if (!entrada.isAbierto())
+                {
+                    vacio = false;
+                }
                 StopCoroutine(checarCupo);
             }
             yield return new WaitForSeconds(1f);
@@ -74,6 +81,11 @@ public class Lugar : MonoBehaviour
         {
             cont--;
             aforo.text = "" + cont;
+            //Checar si vacio al cierre
+            if (!entrada.isAbierto() && cont == 0)
+            {
+                vacio = true;
+            }
         }
     }
 
@@ -85,5 +97,10 @@ public class Lugar : MonoBehaviour
     public int getIndice()
     {
         return this.indice;
+    }
+
+    public bool isVacio()
+    {
+        return this.vacio;
     }
 }
